@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <event name="default">
+        <observer name="ws_ag_an_ev" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+    <!--
+         open product
+    -->
+    <event name="catalog_controller_product_view">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+
+    <!--
+        add to cart
+    -->
+    <event name="checkout_cart_add_product_complete">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+
+    <!--
+        remove from cart
+    -->
+    <event name="sales_quote_remove_item">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+
+    <event name="catalog_product_view_config">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+
+    <!-- visit galery -->
+    <event name="catalog_controller_category_init_after">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+
+    <!-- new order -->
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+
+    <event name="sales_quote_item_set_product">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+    <event name="checkout_allow_guest">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+
+    <!--
+    <event name="sales_convert_order_item_to_quote_item">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_convert_order_to_quote">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_convert_quote_to_order">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_model_service_quote_submit_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_model_service_quote_submit_failure">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_model_service_quote_submit_success">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_creditmemo_cancel">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_creditmemo_refund">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_invoice_cancel">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_invoice_pay">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_invoice_register">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_item_cancel">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_cancel">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_cancel_creditmemo">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_cancel_invoice">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_capture">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_pay">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_place_end">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_place_start">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_refund">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_payment_void">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_place_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_place_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_state_change_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_order_status_unassign">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_prepare_amount_expression">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_add_item">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_address_collect_totals_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_address_collect_totals_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_address_discount_item">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_collect_totals_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_collect_totals_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_item_collection_products_after_load">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_item_qty_set_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_quote_product_add_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sales_sale_collection_query_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="salesrule_rule_condition_combine">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="salesrule_rule_get_coupon_types">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="salesrule_validator_process">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_cart_update_item_complete">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_type_onepage_save_order_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_cart_product_add_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_cart_product_update_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_cart_save_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_cart_save_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_cart_update_items_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_cart_update_items_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_controller_multishipping_shipping_post">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+    <event name="checkout_controller_onepage_saveOrder">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_directpost_placeOrder">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_multishipping_refund_all">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_quote_destroy">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_quote_init">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_submit_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_type_multishipping_create_orders_single">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="checkout_type_multishipping_set_shipping_items">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    -->
+
+
+    <!-- security -->
+    <event name="backend_auth_user_login_success">
+        <observer name="ws_ag_an_seg" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+    <event name="customer_login">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+    <event name="customer_logout">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+    <event name="customer_register_success">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+    <event name="_set_sales_order">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+    <event name="checkout_submit_all_after">
+        <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/>
+    </event>
+
+    <!--
+    <event name="customer_save_after_data_object">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="customer_validate">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="customer_session_init">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_add_is_active_filter">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_clear">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_delete_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_delete_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_delete_commit_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_dev_grid_async_indexing_">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_html_txn_id">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_import_data_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_load_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_load_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_merge_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_merge_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_move_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_move_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_process_relation">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_sales_email_general_async_sending_">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_save_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_save_attribute_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_save_attribute_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_save_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_save_commit_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_validate_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="_validate_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="abstract_search_result_load_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="abstract_search_result_load_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+
+    <event name="admin_permissions_role_prepare_save">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="admin_sales_order_address_update">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="admin_system_config_changed_section_currency">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="admin_system_config_changed_section_currency_before_reinit">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="admin_user_authenticate_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="admin_user_authenticate_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_block_eav_attribute_edit_form_init">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_block_html_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_block_promo_widget_chooser_prepare_collection">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_block_salesrule_actions_prepareform">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_cache_flush_all">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_cache_flush_system">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_cache_refresh_type">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_category_edit_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_category_tabs">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_category_tree_can_add_root_category">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_category_tree_can_add_sub_category">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_category_tree_is_moveable">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_product_attribute_edit_frontend_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_product_attribute_set_main_html_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_product_attribute_set_toolbar_main_html_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_product_edit_element_types">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_product_edit_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_product_edit_tab_attributes_create_html_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_product_form_prepare_excluded_field_list">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_catalog_product_grid_prepare_massaction">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_cms_page_edit_tab_content_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_cms_page_edit_tab_design_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_cms_page_edit_tab_main_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_cms_page_edit_tab_meta_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_cmspage_on_delete">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_controller_catalogrule_prepare_save">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_controller_salesrule_prepare_save">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_customer_orders_add_action_renderer">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_customer_prepare_save">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_customer_save_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_product_attribute_types">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_promo_catalog_edit_tab_main_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_promo_quote_edit_tab_coupons_form_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_promo_quote_edit_tab_main_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_sales_order_create_process_data">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_sales_order_create_process_data_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_sales_order_creditmemo_register_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_store_edit_form_prepare_form">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_system_config_advanced_disableoutput_render_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="adminhtml_widget_grid_filter_collection">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    -->
+
+    <!--
+    <event name="assign_theme_to_stores_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="assigned_theme_changed">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="backend_auth_user_login_failed">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="backend_block_widget_grid_prepare_grid_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_block_product_list_collection">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_block_product_status_display">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_category_change_products">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_category_flat_loadnodes_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_category_prepare_save">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_category_tree_init_inactive_category_ids">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_controller_category_delete">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_controller_product_init_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_controller_product_init_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_prepare_price_select">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_attribute_update_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_collection_apply_limitations_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_collection_before_add_count_to_categories">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+
+
+    <event name="catalog_product_collection_load_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+
+    <event name="catalog_product_compare_add_product">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_compare_item_collection_clear">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_compare_remove_product">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_delete_after_done">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_edit_action">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_gallery_prepare_layout">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_gallery_upload_image_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_get_final_price">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_import_bunch_delete_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_import_bunch_save_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_import_finish_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_new_action">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_option_price_configuration_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_prepare_index_select">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_to_website_change">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_upsell">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalog_product_validate_variations_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catalogsearch_reset_search_result">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="category_move">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="category_prepare_ajax_response">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="catelogsearch_searchable_attributes_load_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="clean_cache_after_reindex">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="clean_cache_by_tags">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="clean_catalog_images_cache_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="clean_media_cache_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="clean_static_files_cache_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="cms_controller_router_match_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="cms_page_prepare_save">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="cms_page_render">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="cms_wysiwyg_images_static_urls_allowed">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="controller_action_catalog_product_save_entity_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="controller_action_layout_render_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="controller_action_layout_render_before_">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="controller_action_nocookies">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="controller_action_noroute">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="controller_action_predispatch_">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="controller_front_send_response_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="core_collection_abstract_load_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="core_collection_abstract_load_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="core_layout_block_create_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="core_layout_render_element">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="currency_display_options_forming">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="customer_address_format">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="customer_customer_authenticated">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="customer_data_object_login">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="depersonalize_clear_session">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="eav_collection_abstract_load_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="email_creditmemo_comment_set_template_vars_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="email_creditmemo_set_template_vars_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="email_invoice_comment_set_template_vars_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="email_invoice_set_template_vars_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="email_order_comment_set_template_vars_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="email_order_set_template_vars_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="email_shipment_comment_set_template_vars_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="email_shipment_set_template_vars_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="gift_options_prepare_items">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="items_additional_data">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="layout_generate_blocks_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="layout_generate_blocks_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="layout_load_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="layout_render_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="layout_render_before_">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="load_customer_quote_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="model_delete_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="model_delete_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="model_delete_commit_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="model_load_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="model_load_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="model_save_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="model_save_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="model_save_commit_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="multishipping_checkout_controller_success_action">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="NO_MATCH">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="on_view_report">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="order_cancel_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="page_block_html_topmenu_gethtml_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="page_block_html_topmenu_gethtml_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="payment_cart_collect_items_and_amounts">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="payment_form_block_to_html_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="payment_method_is_active">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="paypal_express_place_order_success">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="permissions_role_html_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="persistent_session_expired">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="prepare_catalog_product_collection_prices">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="prepare_catalog_product_index_select">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="product_attribute_form_build">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="product_attribute_form_build_front_tab">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="product_attribute_form_build_main_tab">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="product_attribute_grid_build">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="product_option_renderer_init">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="rating_rating_collection_load_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="restore_quote">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="review_controller_product_init">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="review_controller_product_init_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="review_controller_product_init_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="review_review_collection_load_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="rss_catalog_category_xml_callback">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="rss_catalog_new_xml_callback">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="rss_catalog_notify_stock_collection_select">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="rss_catalog_review_collection_select">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="rss_catalog_special_xml_callback">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="rss_order_new_collection_select">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="rss_wishlist_xml_callback">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="sendfriend_product">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="session_abstract_add_message">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="session_abstract_clear_messages">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="shortcut_buttons_container">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="store_address_format">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="store_delete">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="store_group_save">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="swatch_gallery_upload_image_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="tax_rate_data_fetch">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="tax_settings_change_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="theme_registration_from_filesystem">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="theme_save_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="view_block_abstract_to_html_before">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+     <event name="view_message_block_render_grouped_html_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="visitor_activity_save">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="visitor_init">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="wishlist_add_item">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="wishlist_add_product">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="wishlist_item_collection_products_after_load">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="wishlist_items_renewed">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="wishlist_product_add_after">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="wishlist_share">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    <event name="wishlist_update_item">  <observer name="ws_ag_an_pdt" instance="Intelie\LiveObserver\Observer\Observe"/> </event>
+    -->
+</config>
